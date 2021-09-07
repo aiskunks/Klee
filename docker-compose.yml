@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  db:
+    image: "postgres:13"
+    container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../db_data:/var/lib/postgresql/data
+  backend:
+    build: .
+    container_name: klee_engine
+    restart: always
+    volumes:
+      - ../data:/home/klee/data
+      - ../conf:/home/klee/conf
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
