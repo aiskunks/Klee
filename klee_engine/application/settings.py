@@ -1,7 +1,6 @@
 from klee_engine.application.config import BASE_DIR, ROOT_DIR, SECRETS
 
 DB_URI_FORMAT = "postgresql+psycopg2://{username}:{password}@{url}:{db_port}/{db}"
-# DB_URI_FORMAT = "postgres://{username}:{password}@{url}:{db_port}/{db}"
 
 
 class BackendSettings:
@@ -23,6 +22,5 @@ class BackendSettings:
         db_port=SECRETS["DB_PORT"],
         db=SECRETS["DB_NAME"],
     )
-    # SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://postgres:postgres@db:5432/postgres"
     # Admin:
     FLASK_ADMIN_SWATCH = "flatly"
